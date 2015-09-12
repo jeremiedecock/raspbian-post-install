@@ -1,2 +1,3 @@
 *.deb
 raspbian_post_install/priv/
+raspbian_post_install/misc/
