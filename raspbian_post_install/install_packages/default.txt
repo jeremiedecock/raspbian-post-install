@@ -1,0 +1,9 @@
+apt-file
+apt-rdepends
+exuberant-ctags
+git
+git-doc
+screen
+tree
+vim
+vim-doc
