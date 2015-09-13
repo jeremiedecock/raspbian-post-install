@@ -22,22 +22,38 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
-# INSTALL PACKAGES
+# REMOVE USELESS PACKAGES (scratch, mathematica, games, ...)
 
-TITLE="Install Packages"
-SUB_TITLE="Select package lists to install"
-DIR_BASE="install_packages"
+# COMPLETELY REMOVE THE X SERVER ?
 
-PKG_LIST_FILE=$(./choose_packages_lists.sh "${TITLE}" "${SUB_TITLE}" "${DIR_BASE}")
+# see http://raspberrypi.stackexchange.com/questions/4745/how-to-uninstall-x-server-and-desktop-manager-when-running-as-headless-server
+#     http://raspberrypi.stackexchange.com/questions/5258/how-can-i-remove-the-gui-from-raspbian-debian
+
+TITLE="Remove packages"
+QUESTION="Completely remove Xserver and all dependencies ?"
+
+if (whiptail --title "${TITLE}" --yesno "${QUESTION}" 8 78) then
+    echo "Remove Xserver."
+    apt-get remove --auto-remove --purge "libx11-.*"
+else
+    echo "Keep Xserver."
+fi
+
+
+# SELECT A CUSTOM PACKAGE LIST TO REMOVE
+
+TITLE="Remove Packages"
+SUB_TITLE="Select package lists to remove"
+DIR_BASE="${PI_ROOT_DIR}/packages_remove"
+
+PKG_LIST_FILE=$(${PI_ROOT_DIR}/choose_packages_lists.sh "${TITLE}" "${SUB_TITLE}" "${DIR_BASE}")
 echo "Package lists: ${PKG_LIST_FILE}"
 
 for FILE in ${PKG_LIST_FILE}
 do
     echo "Install ${DIR_BASE}/${FILE}:"
     echo $(tr '\n' ' ' < ${DIR_BASE}/${FILE})
-    aptitude install $(tr '\n' ' ' < ${DIR_BASE}/${FILE})
-
-    apt-get clean
-    aptitude clean
+    #aptitude purge $(tr '\n' ' ' < ${DIR_BASE}/${FILE})
+    apt-get remove --auto-remove --purge $(tr '\n' ' ' < ${DIR_BASE}/${FILE})
 done
 

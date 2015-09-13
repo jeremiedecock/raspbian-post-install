@@ -25,7 +25,7 @@
 ASK_TO_REBOOT=0
 
 export PI_ROOT_DIR=$(dirname $0)
-export PI_SCRIPTS_DIR=${PI_ROOT_DIR}/post_install_scripts
+export PI_SCRIPTS_DIR=${PI_ROOT_DIR}/pi_scripts
 
 # COMMON FUNCTIONS ############################################################
 
