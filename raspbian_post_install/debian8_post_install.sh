@@ -26,7 +26,6 @@ ASK_TO_REBOOT=0
 
 export PI_ROOT_DIR=$(dirname $0)
 export PI_SCRIPTS_DIR=${PI_ROOT_DIR}/pi_scripts
-export PI_SCRIPTS_RASPBIAN_DIR=${PI_ROOT_DIR}/pi_scripts_raspbian
 export PI_SCRIPTS_DEBIAN_DIR=${PI_ROOT_DIR}/pi_scripts_debian
 
 # COMMON FUNCTIONS ############################################################
@@ -95,24 +94,12 @@ rpi_confirm fn_pi_pwd "Change the 'pi' password to something more secure"
 
 rpi_confirm fn_root_pwd "Change the root password to something more secure"
 
-rpi_confirm ${PI_SCRIPTS_RASPBIAN_DIR}/install_mpeg2_vc1_keys.sh "Install MPEG2 and VC1 license keys"
-
 rpi_confirm ${PI_SCRIPTS_DIR}/set_hostname.sh "Configure hostname"
-
-rpi_confirm ${PI_SCRIPTS_RASPBIAN_DIR}/remove_packages.sh "Remove useless packages"
 
 rpi_confirm ${PI_SCRIPTS_DEBIAN_DIR}/update_packages.sh "Update packages"
 
-rpi_confirm ${PI_SCRIPTS_RASPBIAN_DIR}/install_packages.sh "Install packages"
-
 rpi_confirm ${PI_SCRIPTS_DIR}/enable_ssh.sh "Enable SSH"
 
-rpi_confirm ${PI_SCRIPTS_RASPBIAN_DIR}/enable_spi.sh "Enable SPI"
-
-rpi_confirm ${PI_SCRIPTS_RASPBIAN_DIR}/enable_picamera.sh "Enable RPI camera"
-
 rpi_confirm ${PI_SCRIPTS_DEBIAN_DIR}/ssh_reconfigure.sh "Change the ssh host keys (as all rpi images have the same keys)"
-
-rpi_confirm ${PI_SCRIPTS_RASPBIAN_DIR}/memory_split.sh "Memory split"
 
 rpi_quit_fn

@@ -26,7 +26,7 @@
 
 TITLE="Install Packages"
 SUB_TITLE="Select package lists to install"
-DIR_BASE="${PI_ROOT_DIR}/packages_install"
+DIR_BASE="${PI_ROOT_DIR}/packages_lists/raspbian_latest/install"
 
 PKG_LIST_FILE=$(./choose_packages_lists.sh "${TITLE}" "${SUB_TITLE}" "${DIR_BASE}")
 echo "Package lists: ${PKG_LIST_FILE}"

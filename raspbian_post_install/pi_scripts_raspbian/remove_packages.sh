@@ -44,7 +44,7 @@ fi
 
 TITLE="Remove Packages"
 SUB_TITLE="Select package lists to remove"
-DIR_BASE="${PI_ROOT_DIR}/packages_remove"
+DIR_BASE="${PI_ROOT_DIR}/packages_lists/raspbian_latest/remove"
 
 PKG_LIST_FILE=$(${PI_ROOT_DIR}/choose_packages_lists.sh "${TITLE}" "${SUB_TITLE}" "${DIR_BASE}")
 echo "Package lists: ${PKG_LIST_FILE}"
