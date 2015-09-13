@@ -51,7 +51,7 @@ echo "Package lists: ${PKG_LIST_FILE}"
 
 for FILE in ${PKG_LIST_FILE}
 do
-    echo "Install ${DIR_BASE}/${FILE}:"
+    echo "Remove packages in ${DIR_BASE}/${FILE}:"
     echo $(tr '\n' ' ' < ${DIR_BASE}/${FILE})
     #aptitude purge $(tr '\n' ' ' < ${DIR_BASE}/${FILE})
     apt-get remove --auto-remove --purge $(tr '\n' ' ' < ${DIR_BASE}/${FILE})

@@ -33,7 +33,7 @@ echo "Package lists: ${PKG_LIST_FILE}"
 
 for FILE in ${PKG_LIST_FILE}
 do
-    echo "Install ${DIR_BASE}/${FILE}:"
+    echo "Install packages in ${DIR_BASE}/${FILE}:"
     echo $(tr '\n' ' ' < ${DIR_BASE}/${FILE})
     aptitude install $(tr '\n' ' ' < ${DIR_BASE}/${FILE})
 
