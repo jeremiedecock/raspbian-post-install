@@ -20,10 +20,38 @@ Note:
     This project is still in beta stage.
 
 
-Usage
-=====
+Install
+=======
 
-TODO...
+After a fresh install, log into the console:
+
+- user: pi
+- password: raspberry
+  
+Warning: at this stage the system assume you use an US keyboard ; thus you have
+to adapt the user/password to your keyboard (e.g. on French keyboard type
+"rqspberry" instead).
+
+Get root privileges::
+
+    sudo -i
+
+(``sudo )i`` on French keyboard)
+
+Install git::
+
+    apt-get update
+    apt-get install git
+
+(``qpt)get updqte`` and ``qpt)get inst)ll git`` on French keyboard)
+
+Install *raspbian post-install scripts*::
+
+    git clone --recursive https://github.com/jeremiedecock/raspbian-post-install.git
+
+(``git clone ))recursive httpsM!!github:co,!jere,iedecock!rqspbiqn)post)instqll:git`` on French keyboard)
+
+.. TODO: use short urls (defined through .htaccess) in http://jdhp.org/ e.g. http://jdhp.org/rpi.git or http://jdhp.org/1
 
 
 Bug reports
