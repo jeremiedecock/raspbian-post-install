@@ -51,6 +51,13 @@ Install *raspbian post-install scripts*::
 
 (``git clone ))recursive httpsM!!github:co,!jere,iedecock!rqspbiqn)post)instqll:git`` on French keyboard)
 
+Launch *raspbian post-install scripts*::
+
+    cd raspbian_post_install
+    ./post_install/raspbian_post_install.sh
+
+(``cd rqspbiqn°post°instqll`` and ``:!post°instqll!rqspbiqn°post°instqll:sh`` on French keyboard)
+
 .. TODO: use short urls (defined through .htaccess) in http://jdhp.org/ e.g. http://jdhp.org/rpi.git or http://jdhp.org/1
 
 
