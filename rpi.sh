@@ -38,18 +38,29 @@ then
     exit 1
 fi
 
-# INSTALL GIT
+# INSTALL APT-TRANSPORT-HTTPS (TO PREVENT SOME BUGS WITH APT-GET)
+
+echo "INSTALL APT-TRANSPORT-HTTPS"
 
 apt-get update
-apt-get install git
+apt-get -y install apt-transport-https
+
+# INSTALL GIT
+
+echo "INSTALL GIT"
+
+apt-get -y install git
 
 # INSTALL RASPBIAN POST-INSTALL SCRIPTS IN /root
+
+echo "INSTALL RASPBIAN POST-INSTALL SCRIPTS"
 
 cd ~
 git clone --recursive https://github.com/jeremiedecock/raspbian-post-install.git
 
 # LAUNCH RASPBIAN POST-INSTALL SCRIPTS
 
-cd raspbian_post_install
-./install.sh
+echo "LAUNCH RASPBIAN POST-INSTALL SCRIPTS"
+
+./raspbian-post-install/install.sh
 
