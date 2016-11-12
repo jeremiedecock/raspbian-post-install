@@ -31,31 +31,37 @@ Warning: at this stage the system assume you use an US keyboard ; thus you have
 to adapt the user/password to your keyboard (e.g. on French keyboard type
 "rqspberry" instead).
 
-Get root privileges::
+Then download the install script::
 
-    sudo -i
+    wget www.jdhp.org/dl/rpi.sh
 
-(``sudo )i`` on French keyboard)
+(``zget zzz:jdhp:org!dl!rpi:sh`` on French keyboard)
 
-Install git::
+And finally launch it (with root privileges)::
 
-    apt-get update
-    apt-get install git
+    sudo bash rpi.sh
 
-(``qpt)get updqte`` and ``qpt)get inst)ll git`` on French keyboard)
+(``sudo bqsh rpi:sh`` on French keyboard)
 
-Install *raspbian post-install scripts*::
-
-    git clone --recursive https://github.com/jeremiedecock/raspbian-post-install.git
-
-(``git clone ))recursive httpsM!!github:co,!jere,iedecock!rqspbiqn)post)instqll:git`` on French keyboard)
-
-Launch *raspbian post-install scripts*::
-
-    cd raspbian_post_install
-    ./install.sh
-
-(``cd rqspbiqn°post°instqll`` and ``:!instqll:sh`` on French keyboard)
+.. Install git::
+.. 
+..     apt-get update
+..     apt-get install git
+.. 
+.. (``qpt)get updqte`` and ``qpt)get inst)ll git`` on French keyboard)
+.. 
+.. Install *raspbian post-install scripts*::
+.. 
+..     git clone --recursive https://github.com/jeremiedecock/raspbian-post-install.git
+.. 
+.. (``git clone ))recursive httpsM!!github:co,!jere,iedecock!rqspbiqn)post)instqll:git`` on French keyboard)
+.. 
+.. Launch *raspbian post-install scripts*::
+.. 
+..     cd raspbian_post_install
+..     ./install.sh
+.. 
+.. (``cd rqspbiqn°post°instqll`` and ``:!instqll:sh`` on French keyboard)
 
 .. TODO: use short urls (defined through .htaccess) in http://jdhp.org/ e.g. http://jdhp.org/rpi.git or http://jdhp.org/1
 
