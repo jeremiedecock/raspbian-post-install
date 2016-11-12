@@ -1,19 +1,18 @@
-================================
-`Raspbian post-install scripts`_
-================================
+=============================
+Raspbian post-install scripts
+=============================
 
-Copyright (c) 2014,2015 Jeremie DECOCK (http://www.jdhp.org)
+Copyright (c) 2014,2015,2016 Jeremie DECOCK (http://www.jdhp.org)
 
-* Source code: https://github.com/volab/raspbian_post_install
-* Issue tracker: https://github.com/volab/raspbian_post_install/issues
-
-In collaboration with http://www.vorobotics.com
+* Source code: https://github.com/jeremiedecock/raspbian-post-install
+* Issue tracker: https://github.com/jeremiedecock/raspbian-post-install/issues
 
 
 Description
 ===========
 
-`Raspbian post-install scripts`_ is a collection of open source .
+This repository contains a collection of scripts to automate and make easier
+the Raspbian post-install tasks.
 
 Note:
 
@@ -54,9 +53,9 @@ Install *raspbian post-install scripts*::
 Launch *raspbian post-install scripts*::
 
     cd raspbian_post_install
-    ./post_install/raspbian_post_install.sh
+    ./install.sh
 
-(``cd rqspbiqn°post°instqll`` and ``:!post°instqll!rqspbiqn°post°instqll:sh`` on French keyboard)
+(``cd rqspbiqn°post°instqll`` and ``:!instqll:sh`` on French keyboard)
 
 .. TODO: use short urls (defined through .htaccess) in http://jdhp.org/ e.g. http://jdhp.org/rpi.git or http://jdhp.org/1
 
@@ -66,17 +65,13 @@ Bug reports
 
 To search for bugs or report them, please use the following Bug Tracker:
 
-    https://github.com/volab/raspbian_post_install/issues
+    https://github.com/jeremiedecock/raspbian-post-install/issues
 
 
 License
 =======
 
-`Raspbian post-install scripts`_ are provided under the terms and conditions of
-the `MIT License`_.
-
+This project is provided under the terms and conditions of the `MIT License`_.
 
 .. _MIT License: http://opensource.org/licenses/MIT
-
-.. _Raspbian post-install scripts: https://github.com/volab/raspbian_post_install
 

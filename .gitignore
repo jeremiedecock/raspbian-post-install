@@ -1,3 +1,4 @@
 *.deb
-raspbian_post_install/priv/
-raspbian_post_install/misc/
+*.tar.gz
+*.tgz
+misc/

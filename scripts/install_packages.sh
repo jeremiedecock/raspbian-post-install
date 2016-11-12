@@ -22,14 +22,22 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
-# ENABLE SSH
-# See raspi-config source code (a shell script easy to understand)
+# INSTALL PACKAGES
 
-# Enable SSH
-update-rc.d ssh enable &&
-invoke-rc.d ssh start
+TITLE="Install Packages"
+SUB_TITLE="Select package lists to install"
+DIR_BASE="${PI_SCRIPTS_PACKAGES_LISTS_DIR}/install"
 
-# Disable SSH
-#update-rc.d ssh disable
+PKG_LIST_FILE=$(${PI_SCRIPTS_DIR}/choose_packages_lists.sh "${TITLE}" "${SUB_TITLE}" "${DIR_BASE}")
+echo "Package lists: ${PKG_LIST_FILE}"
 
+for FILE in ${PKG_LIST_FILE}
+do
+    echo "Install packages in ${DIR_BASE}/${FILE}:"
+    echo $(tr '\n' ' ' < ${DIR_BASE}/${FILE})
+    aptitude install $(tr '\n' ' ' < ${DIR_BASE}/${FILE})
+
+    apt-get clean
+    aptitude clean
+done
 
