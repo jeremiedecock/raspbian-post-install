@@ -24,7 +24,8 @@
 
 # IMPORT COMMON FUNCTIONS #####################################################
 
-. common/scripts/functions.sh
+RELATIVE_DIR="$(dirname "$0")"
+. "${RELATIVE_DIR}/common/scripts/functions.sh"
 
 # SET VARIABLES ###############################################################
 
