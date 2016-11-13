@@ -7,3 +7,6 @@
 [submodule "submodules/tcpwrapper"]
 	path = submodules/tcpwrapper
 	url = https://github.com/jeremiedecock/tcp-wrapper-scripts.git
+[submodule "submodules/apache"]
+	path = submodules/apache
+	url = https://github.com/jeremiedecock/apache-install-scripts.git
