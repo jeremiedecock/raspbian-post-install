@@ -4,3 +4,6 @@
 [submodule "submodules/iptables"]
 	path = submodules/iptables
 	url = https://github.com/jeremiedecock/iptables-scripts.git
+[submodule "submodules/tcpwrapper"]
+	path = submodules/tcpwrapper
+	url = https://github.com/jeremiedecock/tcp-wrapper-scripts.git
