@@ -22,6 +22,12 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
+# IMPORT COMMON FUNCTIONS #####################################################
+
+. common/scripts/functions.sh
+
+# SET VARIABLES ###############################################################
+
 ASK_TO_REBOOT=0
 
 export PI_ROOT_DIR=$(dirname $0)
@@ -32,7 +38,7 @@ export PI_SCRIPTS_PACKAGES_LISTS_DIR=${PI_ROOT_DIR}/packages_lists/raspbian_late
 # COMMON FUNCTIONS ############################################################
 
 # Ask for confirmation and execute FN_NAME
-rpi_confirm() {
+pi_confirm() {
     FN_NAME="$1"
     FN_MSG="$2"
 
@@ -42,7 +48,7 @@ rpi_confirm() {
     case ${RESP} in
         s) return 0
             ;;
-        q) rpi_quit_fn
+        q) pi_quit_fn
             ;;
     esac
 
@@ -50,13 +56,13 @@ rpi_confirm() {
 }
 
 # Global initialization function
-rpi_init_fn() {
+pi_init_fn() {
     # TODO: load state variables
     echo ""
 }
 
 # Exit function
-rpi_quit_fn() {
+pi_quit_fn() {
     # TODO: save state variables
     exit 0
 }
@@ -64,55 +70,50 @@ rpi_quit_fn() {
 # FUNCTIONS ###################################################################
 
 # CHANGE THE 'pi' PASSWORD TO SOMETHING MORE SECURE
-fn_pi_pwd() {
+pi_pi_pwd() {
     passwd pi
 }
 
 # CHANGE THE ROOT PASSWORD TO SOMETHING MORE SECURE
-fn_root_pwd() {
+pi_root_pwd() {
     passwd
 }
 
 ###############################################################################
 
-# CHECK ID
-if [ $(id -u) -ne 0 ]
-then
-    echo "Script must be run as root. Try 'sudo ./install.sh'\n"
-    exit 1
-fi
+pi_check_root
 
-rpi_init_fn
+pi_init_fn
 
-rpi_confirm ${PI_SCRIPTS_COMMON_DIR}/setup_l10n.sh "Localization and internationalization (setup keyboard, locale and timezone)"
+pi_confirm ${PI_SCRIPTS_COMMON_DIR}/setup_l10n.sh "Localization and internationalization (setup keyboard, locale and timezone)"
 
-rpi_confirm ${PI_SCRIPTS_COMMON_DIR}/resize_partition.sh "Resize partitions"
+pi_confirm ${PI_SCRIPTS_COMMON_DIR}/resize_partition.sh "Resize partitions"
 
 # NTP works out of the box with recent raspbian releases
-#rpi_confirm ${PI_SCRIPTS_COMMON_DIR}/install_ntp.sh "Install and configure ntp"
+#pi_confirm ${PI_SCRIPTS_COMMON_DIR}/install_ntp.sh "Install and configure ntp"
 
-rpi_confirm fn_pi_pwd "Change the 'pi' password to something more secure"
+pi_confirm pi_pi_pwd "Change the 'pi' password to something more secure"
 
-rpi_confirm fn_root_pwd "Change the root password to something more secure"
+pi_confirm pi_root_pwd "Change the root password to something more secure"
 
-rpi_confirm ${PI_SCRIPTS_RASPBIAN_DIR}/install_mpeg2_vc1_keys.sh "Install MPEG2 and VC1 license keys"
+pi_confirm ${PI_SCRIPTS_RASPBIAN_DIR}/install_mpeg2_vc1_keys.sh "Install MPEG2 and VC1 license keys"
 
-rpi_confirm ${PI_SCRIPTS_COMMON_DIR}/set_hostname.sh "Configure hostname"
+pi_confirm ${PI_SCRIPTS_COMMON_DIR}/set_hostname.sh "Configure hostname"
 
-rpi_confirm ${PI_SCRIPTS_RASPBIAN_DIR}/remove_packages.sh "Remove useless packages"
+pi_confirm ${PI_SCRIPTS_RASPBIAN_DIR}/remove_packages.sh "Remove useless packages"
 
-rpi_confirm ${PI_SCRIPTS_COMMON_DIR}/update_packages.sh "Update packages"
+pi_confirm ${PI_SCRIPTS_COMMON_DIR}/update_packages.sh "Update packages"
 
-rpi_confirm ${PI_SCRIPTS_RASPBIAN_DIR}/install_packages.sh "Install packages"
+pi_confirm ${PI_SCRIPTS_RASPBIAN_DIR}/install_packages.sh "Install packages"
 
-rpi_confirm ${PI_SCRIPTS_COMMON_DIR}/enable_ssh.sh "Enable SSH"
+pi_confirm ${PI_SCRIPTS_COMMON_DIR}/enable_ssh.sh "Enable SSH"
 
-rpi_confirm ${PI_SCRIPTS_RASPBIAN_DIR}/enable_spi.sh "Enable SPI"
+pi_confirm ${PI_SCRIPTS_RASPBIAN_DIR}/enable_spi.sh "Enable SPI"
 
-rpi_confirm ${PI_SCRIPTS_RASPBIAN_DIR}/enable_picamera.sh "Enable RPI camera"
+pi_confirm ${PI_SCRIPTS_RASPBIAN_DIR}/enable_picamera.sh "Enable RPI camera"
 
-rpi_confirm ${PI_SCRIPTS_COMMON_DIR}/ssh_reconfigure.sh "Change the ssh host keys (as all rpi images have the same keys)"
+pi_confirm ${PI_SCRIPTS_COMMON_DIR}/ssh_reconfigure.sh "Change the ssh host keys (as all rpi images have the same keys)"
 
-rpi_confirm ${PI_SCRIPTS_RASPBIAN_DIR}/memory_split.sh "Memory split"
+pi_confirm ${PI_SCRIPTS_RASPBIAN_DIR}/memory_split.sh "Memory split"
 
-rpi_quit_fn
+pi_quit_fn
