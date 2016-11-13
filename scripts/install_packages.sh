@@ -22,13 +22,13 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
-# INSTALL PACKAGES
+# INSTALL PACKAGES ############################################################
 
 TITLE="Install Packages"
 SUB_TITLE="Select package lists to install"
 DIR_BASE="${PI_SCRIPTS_PACKAGES_LISTS_DIR}/install"
 
-PKG_LIST_FILE=$(${PI_SCRIPTS_DIR}/choose_packages_lists.sh "${TITLE}" "${SUB_TITLE}" "${DIR_BASE}")
+PKG_LIST_FILE=$(${PI_SCRIPTS_COMMON_DIR}/choose_packages_lists.sh "${TITLE}" "${SUB_TITLE}" "${DIR_BASE}")
 echo "Package lists: ${PKG_LIST_FILE}"
 
 for FILE in ${PKG_LIST_FILE}

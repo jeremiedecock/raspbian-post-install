@@ -22,7 +22,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
-# REMOVE USELESS PACKAGES (scratch, mathematica, games, ...)
+# REMOVE USELESS PACKAGES (scratch, mathematica, games, ...) ##################
 
 # COMPLETELY REMOVE THE X SERVER ?
 
@@ -40,13 +40,13 @@ else
 fi
 
 
-# SELECT A CUSTOM PACKAGE LIST TO REMOVE
+# SELECT A CUSTOM PACKAGE LIST TO REMOVE ######################################
 
 TITLE="Remove Packages"
 SUB_TITLE="Select package lists to remove"
 DIR_BASE="${PI_SCRIPTS_PACKAGES_LISTS_DIR}/remove"
 
-PKG_LIST_FILE=$(${PI_SCRIPTS_DIR}/choose_packages_lists.sh "${TITLE}" "${SUB_TITLE}" "${DIR_BASE}")
+PKG_LIST_FILE=$(${PI_SCRIPTS_COMMON_DIR}/choose_packages_lists.sh "${TITLE}" "${SUB_TITLE}" "${DIR_BASE}")
 echo "Package lists: ${PKG_LIST_FILE}"
 
 for FILE in ${PKG_LIST_FILE}

@@ -1,0 +1,9 @@
+build-essential
+cmake
+cmake-curses-gui
+cmake-doc
+git
+git-doc
+make
+manpages-dev
+manpages-fr-dev
