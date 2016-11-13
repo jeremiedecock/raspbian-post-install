@@ -24,17 +24,17 @@
 
 # IMPORT COMMON FUNCTIONS #####################################################
 
-RELATIVE_DIR="$(dirname "$0")"
-. "${RELATIVE_DIR}/common/scripts/functions.sh"
+export PI_ROOT_DIR="$(dirname "$0")"
+
+. "${PI_ROOT_DIR}/common/scripts/functions.sh"
 
 # SET VARIABLES ###############################################################
 
-ASK_TO_REBOOT=0
+export PI_SCRIPTS_COMMON_DIR="${PI_ROOT_DIR}/common/scripts"
+export PI_SCRIPTS_RASPBIAN_DIR="${PI_ROOT_DIR}/scripts"
+export PI_SCRIPTS_PACKAGES_LISTS_DIR="${PI_ROOT_DIR}/packages_lists/raspbian_latest"
 
-export PI_ROOT_DIR=$(dirname $0)
-export PI_SCRIPTS_COMMON_DIR=${PI_ROOT_DIR}/common/scripts
-export PI_SCRIPTS_RASPBIAN_DIR=${PI_ROOT_DIR}/scripts
-export PI_SCRIPTS_PACKAGES_LISTS_DIR=${PI_ROOT_DIR}/packages_lists/raspbian_latest
+ASK_TO_REBOOT=0
 
 # COMMON FUNCTIONS ############################################################
 
@@ -121,5 +121,7 @@ pi_confirm ${PI_SCRIPTS_COMMON_DIR}/ssh_reconfigure.sh "Change the ssh host keys
 
 # TODO: update the following function
 #pi_confirm ${PI_SCRIPTS_RASPBIAN_DIR}/memory_split.sh "Memory split"
+
+pi_confirm "${PI_ROOT_DIR}/submodules/iptables/install-sysv.sh" "Install iptables scripts"
 
 pi_quit_fn
