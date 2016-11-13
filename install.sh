@@ -124,4 +124,6 @@ pi_confirm ${PI_SCRIPTS_COMMON_DIR}/ssh_reconfigure.sh "Change the ssh host keys
 
 pi_confirm "${PI_ROOT_DIR}/submodules/iptables/install-sysv.sh" "Install iptables scripts"
 
+pi_confirm "${PI_ROOT_DIR}/submodules/tcpwrapper/install-debian.sh" "Configure tcp-wrapper"
+
 pi_quit_fn
