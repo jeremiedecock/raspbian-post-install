@@ -22,6 +22,12 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
+
+###############################################################################
+# CE SCRIPT DOIT ÊTRE EXECUTÉ SUR UN PC SUR LEQUEL EST MONTÉ LA CARTE SD      #
+# DU RPI (ET NON PAS DIRECTEMENT SUR LE RPI LUI MÊME)                         #
+###############################################################################
+
 # IMPORT COMMON FUNCTIONS #####################################################
 
 export RASPBIAN_BOOT_DIR="/media/$USER/boot"
