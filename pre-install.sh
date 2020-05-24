@@ -57,17 +57,24 @@ grep -qxF "${LINE_TO_APPEND}" "${RPI_CONFIG_FILE_PATH}" || echo "${LINE_TO_APPEN
 # MAKE THE DEFAULT USER #######################################################
 
 echo "Make user ${RPI_DEFAULT_USER} (uid=${RPI_DEFAULT_USER_UID} gid=${RPI_DEFAULT_USER_GID} groups=${PI_GROUPS})"
-#sudo groupadd -R "${RASPBIAN_ROOT_DIR}" --gid=${RPI_DEFAULT_USER_GID} ${RPI_DEFAULT_USER}                                                   # <- ce putain de groupadd fait de la merde
-#sudo useradd -R "${RASPBIAN_ROOT_DIR}" --gid=${RPI_DEFAULT_USER_GID} --uid=${RPI_DEFAULT_USER_UID} -G "${PI_GROUPS}" ${RPI_DEFAULT_USER}   # <- ce putain de useradd fait de la merde
-sudo useradd -R "${RASPBIAN_ROOT_DIR}" --uid=${RPI_DEFAULT_USER_UID} -U -m ${RPI_DEFAULT_USER}
-
-sudo sed -i "s/^autologin-user=pi$/autologin-user=${RPI_DEFAULT_USER}/" "${RASPBIAN_ROOT_DIR}/etc/lightdm/lightdm.conf"
 
 
-sudo mkdir -p "${RPI_HOME_PATH}"
-sudo chown ${RPI_DEFAULT_USER_UID}:${RPI_DEFAULT_USER_UID} "${RPI_HOME_PATH}"
+# SET THE NEW DEFAULT USER PASSWORD
+# rem : on ne peut pas faire de chroot sur la carte SD d'un RPi car les executables présents sur la carte sont des executables ARM (et non pas x86)...
+echo ""
+echo "*** DEFAULT USER PASSWORD ***"
 
+##sudo groupadd -R "${RASPBIAN_ROOT_DIR}" --gid=${RPI_DEFAULT_USER_GID} ${RPI_DEFAULT_USER}                                                   # <- groupadd échoue lamentablement quand on utilise --gid et -R
+##sudo useradd -R "${RASPBIAN_ROOT_DIR}" --gid=${RPI_DEFAULT_USER_GID} --uid=${RPI_DEFAULT_USER_UID} -G "${PI_GROUPS}" ${RPI_DEFAULT_USER}    # <- groupadd échoue lamentablement quand on utilise -G et -R
+sudo useradd -R "${RASPBIAN_ROOT_DIR}" --uid=${RPI_DEFAULT_USER_UID} -U -m -p "$(openssl passwd -6)" ${RPI_DEFAULT_USER}
+
+
+# ALLOCATE GROUPS TO THE NEW DEFAULT USER (TAKE ALL "PI" GROUPS)
 sudo sed -i "s/:pi$/:${RPI_DEFAULT_USER}/" "${RASPBIAN_ROOT_DIR}/etc/group"
+
+
+# CHANGE THE DEFAULT USER
+sudo sed -i "s/^autologin-user=pi$/autologin-user=${RPI_DEFAULT_USER}/" "${RASPBIAN_ROOT_DIR}/etc/lightdm/lightdm.conf"
 
 
 # CLONE JDHP REPOSITORIES #####################################################
