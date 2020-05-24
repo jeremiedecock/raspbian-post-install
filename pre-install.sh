@@ -105,3 +105,12 @@ cp -r ~/.vim "${RPI_HOME_PATH}/"
 cp ~/.vimrc "${RPI_HOME_PATH}/"
 cp ~/.tmux.conf "${RPI_HOME_PATH}/"
 
+
+# MAKE A SCRIPT TO SET 7" SCREEN BRIGHTNESS ##################################
+
+# https://www.raspberrypi.org/forums/viewtopic.php?t=214086
+# https://raspberrypi.stackexchange.com/questions/46225/adjusting-the-brightness-of-the-official-touchscreen-display
+
+echo '#!/bin/sh' > "${RPI_HOME_PATH}/brightness.sh"
+echo 'echo "24" > /sys/class/backlight/rpi_backlight/brightness' >> "${RPI_HOME_PATH}/brightness.sh"
+chmod a+x "${RPI_HOME_PATH}/brightness.sh"
