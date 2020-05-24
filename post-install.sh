@@ -86,12 +86,13 @@ pi_check_root
 
 pi_init_fn
 
-pi_confirm ${PI_SCRIPTS_COMMON_DIR}/setup_l10n.sh "Localization and internationalization (setup keyboard, locale and timezone)"
+# The following function is not required with latest versions of Raspbian
+#pi_confirm ${PI_SCRIPTS_COMMON_DIR}/setup_l10n.sh "Localization and internationalization (setup keyboard, locale and timezone)"
 
-# TODO: update the following function
+# The following function is not required with latest versions of Raspbian
 #pi_confirm ${PI_SCRIPTS_COMMON_DIR}/resize_partition.sh "Resize partitions"
 
-# NTP works out of the box with recent raspbian releases
+# The following function is not required with latest versions of Raspbian, NTP works out of the box with recent raspbian releases
 #pi_confirm ${PI_SCRIPTS_COMMON_DIR}/install_ntp.sh "Install and configure ntp"
 
 pi_confirm pi_pi_pwd "Change the 'pi' password to something more secure"
@@ -122,6 +123,7 @@ pi_confirm ${PI_SCRIPTS_COMMON_DIR}/ssh_reconfigure.sh "Change the ssh host keys
 # TODO: update the following function
 #pi_confirm ${PI_SCRIPTS_RASPBIAN_DIR}/memory_split.sh "Memory split"
 
+# TODO: update the following function
 pi_confirm "${PI_ROOT_DIR}/submodules/iptables/install-sysv.sh" "Install iptables scripts"
 
 pi_confirm "${PI_ROOT_DIR}/submodules/tcpwrapper/install-debian.sh" "Configure tcp-wrapper"

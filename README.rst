@@ -31,17 +31,17 @@ Warning: at this stage the system assume you use an US keyboard ; thus you have
 to adapt the user/password to your keyboard (e.g. on French keyboard type
 "rqspberry" instead).
 
-Then download the install script::
+Then download the *Post Install Bootstrap* script::
 
-    wget www.jdhp.org/dl/rpi.sh
+    wget www.jdhp.org/dl/pib.sh
 
-(``zget zzz:jdhp:org!dl!rpi:sh`` on French keyboard)
+(``zget zzz:jdhp:org!dl!pib.sh`` on French keyboard)
 
 And finally launch it (with root privileges)::
 
-    sudo bash rpi.sh
+    sudo bash pib.sh
 
-(``sudo bqsh rpi:sh`` on French keyboard)
+(``sudo bqsh pib.sh`` on French keyboard)
 
 .. Install git::
 .. 

@@ -23,6 +23,8 @@
 # THE SOFTWARE.
 
 ###############################################################################
+# Raspbian Post Install Bootstrap (PIB) script                                #
+#                                                                             #
 # This script is part of the "Raspbian post-install scripts"                  #
 # (https://github.com/jeremiedecock/raspbian-post-install) ; its purpose is   #
 # to facilitate the installation of these script and minimize the number of   #
@@ -34,7 +36,7 @@
 
 if [ $(id -u) -ne 0 ]
 then
-    echo "Script must be run as root. Try 'sudo ./rpi.sh'\n"
+    echo "Script must be run as root. Try 'sudo ./pib.sh'\n"
     exit 1
 fi
 
@@ -62,5 +64,5 @@ git clone --recursive https://github.com/jeremiedecock/raspbian-post-install.git
 
 echo "LAUNCH RASPBIAN POST-INSTALL SCRIPTS"
 
-./raspbian-post-install/install.sh
+./raspbian-post-install/post-install.sh
 
