@@ -112,5 +112,10 @@ cp ~/.tmux.conf "${RPI_HOME_PATH}/"
 # https://raspberrypi.stackexchange.com/questions/46225/adjusting-the-brightness-of-the-official-touchscreen-display
 
 echo '#!/bin/sh' > "${RPI_HOME_PATH}/brightness.sh"
-echo 'echo "24" > /sys/class/backlight/rpi_backlight/brightness' >> "${RPI_HOME_PATH}/brightness.sh"
+echo 'echo "17" > /sys/class/backlight/rpi_backlight/brightness' >> "${RPI_HOME_PATH}/brightness.sh"
 chmod a+x "${RPI_HOME_PATH}/brightness.sh"
+
+echo '#!/bin/sh' > "${RPI_HOME_PATH}/sleep_time.sh"
+echo '# sleep after 60 sec' >> "${RPI_HOME_PATH}/sleep_time.sh"
+echo 'xset s 60' >> "${RPI_HOME_PATH}/sleep_time.sh"
+chmod a+x "${RPI_HOME_PATH}/sleep_time.sh"
