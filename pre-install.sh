@@ -96,7 +96,7 @@ mkdir "${RPI_HOME_PATH}/.ssh"
 
 cat ~/.ssh/id_rsa.pub > "${RPI_HOME_PATH}/.ssh/authorized_keys"
 
-ssh-keygen -f "${RPI_HOME_PATH}/.ssh/id_dsa"
+ssh-keygen -f "${RPI_HOME_PATH}/.ssh/id_rsa"
 cat "${RPI_HOME_PATH}/.ssh/id_dsa.pub"
 
 # CONFIGURE VIM AND TMUX #####################################################
