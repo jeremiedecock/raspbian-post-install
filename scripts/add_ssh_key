@@ -1,0 +1,5 @@
+#!/bin/sh
+
+SSH_KEY_PATH=~/.ssh/id_rsa
+# See http://unix.stackexchange.com/questions/132791/have-ssh-add-be-quiet-if-key-already-there
+ssh-add -l | grep -q $(ssh-keygen -l -f ${SSH_KEY_PATH} | awk '{print $2}') || ssh-add ${SSH_KEY_PATH}
